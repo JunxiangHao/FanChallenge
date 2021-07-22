@@ -3,6 +3,8 @@ package com.example.test;
 import com.example.fan.Direction;
 import com.example.fan.Fan;
 import org.junit.jupiter.api.Test;
+
+import static com.example.fan.Fan.OFF;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class FanTest {
@@ -11,7 +13,7 @@ public class FanTest {
     public void testSpeed(){
         fan = new Fan();
         //increase the speed
-        assertEquals(fan.getSpeed(),0);
+        assertEquals(fan.getSpeed(),OFF);
         assertEquals(fan.getDirection(), Direction.CLOCKWISE);
         fan.increaseSpeed();
         assertEquals(fan.getSpeed(),1);
@@ -23,7 +25,7 @@ public class FanTest {
         assertEquals(fan.getSpeed(),3);
         assertEquals(fan.getDirection(), Direction.CLOCKWISE);
         fan.increaseSpeed();
-        assertEquals(fan.getSpeed(),0);
+        assertEquals(fan.getSpeed(),OFF);
         assertEquals(fan.getDirection(), Direction.CLOCKWISE);
     }
     @Test
@@ -32,7 +34,7 @@ public class FanTest {
         //increase the  speed and keep the direction after reverse the fan
         fan.reverse();
         assertEquals(fan.getDirection(), Direction.COUNTERCLOCKWISE);
-        assertEquals(fan.getSpeed(),0);
+        assertEquals(fan.getSpeed(),OFF);
         fan.increaseSpeed();
         assertEquals(fan.getDirection(), Direction.COUNTERCLOCKWISE);
         assertEquals(fan.getSpeed(),1);
@@ -44,11 +46,11 @@ public class FanTest {
         assertEquals(fan.getSpeed(),3);
         fan.increaseSpeed();
         assertEquals(fan.getDirection(), Direction.COUNTERCLOCKWISE);
-        assertEquals(fan.getSpeed(),0);
+        assertEquals(fan.getSpeed(),OFF);
         //reverse again and increase the speed
         fan.reverse();
         assertEquals(fan.getDirection(), Direction.CLOCKWISE);
-        assertEquals(fan.getSpeed(),0);
+        assertEquals(fan.getSpeed(),OFF);
         fan.increaseSpeed();
         assertEquals(fan.getDirection(), Direction.CLOCKWISE);
         assertEquals(fan.getSpeed(),1);
